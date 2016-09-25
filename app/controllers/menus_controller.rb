@@ -9,7 +9,7 @@ class MenusController < ApplicationController
     rest_name = params[:menu][:restaurant_name]
     # img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
     #img = extract base64 data from params
-    menu = Menu.create(restaurant_name: rest_name image: image )
+    menu = Menu.create( restaurant_name: rest_name, image: image )
     if menu.save
       uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{Figaro.env.google_vision_key}")
       req = Net::HTTP::Post.new(uri, initheader = { 'Content-Type' =>'application/json' })
