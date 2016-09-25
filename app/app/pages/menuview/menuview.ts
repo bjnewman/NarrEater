@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { NavParams } from 'ionic-angular';
+import {NavParams} from 'ionic-angular';
+import { Menu } from '../../models/menu';
 
 @Component({
   templateUrl: 'build/pages/menuview/menuview.html'
 })
 export class MenuView {
-
-  private base64Image: string;
-  private speechText: string;
+  private title;
+  private content;
 
   constructor(public navCtrl: NavController, private navParams: NavParams) {
-    this.base64Image = this.navParams.get('picture');
-    this.speechText = this.navParams.get('text');
+    this.title = this.navParams.get('menu').title;
+    this.content = this.navParams.get('menu').content;
   }
+
 }
