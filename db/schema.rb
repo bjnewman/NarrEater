@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925175358) do
+ActiveRecord::Schema.define(version: 20160925210010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "menus", force: :cascade do |t|
-    t.string   "restuarant_name",    null: false
-    t.string   "OCR_text",           null: false
+    t.string   "restaurant_name",    null: false
+    t.string   "ocr_text",           null: false
     t.integer  "creator_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
