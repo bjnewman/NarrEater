@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'homepages#index'
 
   get '/homepages', to: 'homepages#index'
-  resources :menus
+  resources :menus, only: [:index, :create]
 end
