@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Camera } from 'ionic-native';
 import { MenuView } from '../menuview/menuview'
+import { Menu } from '../../models/menu';
 
 @Component({
   template: "<p>Camera You should not see this</p>"
@@ -40,5 +41,7 @@ export class CameraController {
       error => console.log(error)
     )
     this.navCtrl.push(MenuView, {picture: this.base64Image, text: this.returnText._body});
+    // var newMenu = new Menu("test title", this.returnText._body)
+    // this.navCtrl.push(MenuView, {menu: newMenu})
   }
 }
