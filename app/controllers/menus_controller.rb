@@ -4,7 +4,7 @@ class MenusController < ApplicationController
   end
 
   def create
-    #get image from params in format of "{ "menu": { "restaurant_name": "FoodTown", "image": "data:image/png;base64,iVBORw0KGgo...", "image_file_name": "file.png" } }
+    #get image from params in format of "{ "menu": { "restaurant_name": "FoodTown", "raw_image": "data:image/png;base64,iVBORw0KGgo...", "image_file_name": "file.png" } }
     image = Paperclip.io_adapters.for(params[:menu][:raw_image])
     rest_name = params[:menu][:restaurant_name]
     # img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
