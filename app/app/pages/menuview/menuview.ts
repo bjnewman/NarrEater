@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  templateUrl: 'build/pages/settings/settings.html'
+  templateUrl: 'build/pages/menuview/menuview.html'
 })
-export class Settings {
+export class MenuView {
   constructor(public navCtrl: NavController) {
 
   }
