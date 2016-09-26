@@ -6,13 +6,19 @@ class MenusController < ApplicationController
 
   def create
     #get image from params in format of "{ "menu": { "restaurant_name": "FoodTown", "raw_image": "data:image/png;base64,iVBORw0KGgo...", "image_file_name": "file.png" } }
-    image = Paperclip.io_adapters.for(params[:menu][:raw_image])
-    rest_name = params[:menu][:restaurant_name]
-    # img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
-    #img = extract base64 data from params
-    menu = Menu.create( restaurant_name: rest_name, image: image )
+    # image = Paperclip.io_adapters.for(params[:menu][:raw_image])
+    menu = Menu.create( restaurant_name: "Pete's Pizza")
+    image = Paperclip.io_adapters.for(params[:rawImage])
+    image.original_filename = "stuff.png"
+    menu.image = image
+    # rest_name = params[:menu][:restaurant_name]
     if menu.save
-      uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{ENV[google_vision_key]}")
+    p menu.image.url
+    puts "image===================================================================================================="
+    img = encoded_image("http:#{menu.image.url}") # placeholder image for testing
+    # img = extract base64 data from params
+    # menu = Menu.create( restaurant_name: "Pete's Pizza", image: image )
+      uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{ENV["google_vision_key"]}")
       req = Net::HTTP::Post.new(uri, initheader = { 'Content-Type' =>'application/json' })
 
       req.body = {
@@ -53,7 +59,7 @@ class MenusController < ApplicationController
     else
       respond_to do |format|
         format.js do
-          render json: menu.error.full_messages, content_type: "application/json"
+          render json: menu.errors.full_messages, content_type: "application/json"
         end
         format.html do
             render file: "#{Rails.root}/public/500", layout: false, status: 500
