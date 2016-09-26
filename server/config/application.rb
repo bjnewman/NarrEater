@@ -23,6 +23,7 @@ module NarrEatR
     storage: :s3,
     s3_region: ENV["aws_s3_region"],
     s3_credentials: {
+      s3_host_name: ENV["aws_s3_host_name"],
       bucket: ENV["aws_s3_bucket"],
       access_key_id: ENV["aws_access_key_ID"],
       secret_access_key: ENV["aws_secret_access_key"]

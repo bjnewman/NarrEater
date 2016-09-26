@@ -8,12 +8,13 @@ class MenusController < ApplicationController
     #get image from params in format of "{ "menu": { "restaurant_name": "FoodTown", "raw_image": "data:image/png;base64,iVBORw0KGgo...", "image_file_name": "file.png" } }
     # image = Paperclip.io_adapters.for(params[:menu][:raw_image])
     menu = Menu.create( restaurant_name: "Pete's Pizza")
-    p params
     image = Paperclip.io_adapters.for(params[:rawImage])
     image.original_filename = "stuff.png"
     menu.image = image
     # rest_name = params[:menu][:restaurant_name]
-    # img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
+    p menu.image.url
+    puts "image===================================================================================================="
+    img = encoded_image("http://restaurantmenudesignstyle.com/wp-content/uploads/2016/01/example-of-restaurant-menu.14839289414_cde762334a_b.jpg") # placeholder image for testing
     # img = extract base64 data from params
     # menu = Menu.create( restaurant_name: "Pete's Pizza", image: image )
     if menu.save
@@ -24,7 +25,7 @@ class MenusController < ApplicationController
                 requests: [
                   {
                       image: {
-                        content: image
+                        content: img
                       },
                       features: {
                         type: "TEXT_DETECTION",
