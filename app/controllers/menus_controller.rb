@@ -5,11 +5,14 @@ class MenusController < ApplicationController
   end
 
   def create
-    #get image from params
-    img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
-    menu = Menu.new( menu_params )
+    #get image from params in format of "{ "menu": { "restaurant_name": "FoodTown", "raw_image": "data:image/png;base64,iVBORw0KGgo...", "image_file_name": "file.png" } }
+    image = Paperclip.io_adapters.for(params[:menu][:raw_image])
+    rest_name = params[:menu][:restaurant_name]
+    # img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
+    #img = extract base64 data from params
+    menu = Menu.create( restaurant_name: rest_name, image: image )
     if menu.save
-      uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{Figaro.env.google_vision_key}")
+      uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{ENV[google_vision_key]}")
       req = Net::HTTP::Post.new(uri, initheader = { 'Content-Type' =>'application/json' })
 
       req.body = {
@@ -37,10 +40,26 @@ class MenusController < ApplicationController
           detected_text = json["responses"][0]["textAnnotations"][0]["description"]
           end
           menu.ocr_text = detected_text
+          menu.save
       end
-      #send text back to client-side
+      respond_to do |format|
+        format.js do
+          render json: menu.ocr_text, content_type: 'application/json'
+        end
+        format.html do
+          render file: "#{Rails.root}/public/500", layout: false, status: 500
+        end
+      end
     else
-
+      respond_to do |format|
+        format.js do
+          render json: menu.error.full_messages, content_type: "application/json"
+        end
+        format.html do
+            render file: "#{Rails.root}/public/500", layout: false, status: 500
+        end
+      end
+    end
   end
 
   private
