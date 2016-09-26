@@ -11,8 +11,10 @@ export class MenuView {
   private content;
 
   constructor(public navCtrl: NavController, private navParams: NavParams) {
-    // this.title = this.navParams.get('menu').title;
-    // this.content = this.navParams.get('menu').content;
+    this.title = this.navParams.get('menu').title;
+    console.log(this.title)
+    this.content = this.navParams.get('menu').content;
+    console.log(this.content)
   }
 
 }
