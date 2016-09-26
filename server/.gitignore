@@ -44,6 +44,7 @@ jspm_packages
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.DS_Store
 
 # Ignore Byebug command history file.
 .byebug_history
