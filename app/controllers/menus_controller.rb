@@ -52,7 +52,7 @@ class MenusController < ApplicationController
     else
       respond_to do |format|
         format.js do
-          render json: menu.error.full_messages, content_type: "applicaiton/json"
+          render json: menu.error.full_messages, content_type: "application/json"
         end
         format.html do
             render file: "#{Rails.root}/public/500", layout: false, status: 500
