@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
@@ -13,6 +13,7 @@ export class CameraController {
   public base64Image: string;
   public returnText;
 
+  // @ViewChild('navTabs') tabRef: Tabs;
   constructor(public navCtrl: NavController, private http: Http) {
     console.log('Initial CameraController')
   }

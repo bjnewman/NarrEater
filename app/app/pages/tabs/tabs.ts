@@ -1,5 +1,5 @@
 // Ionic imports
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Camera } from 'ionic-native';
 // Page imports
 import { Main } from '../main/main';
@@ -12,6 +12,7 @@ import { CameraController } from '../cameracontroller/cameracontroller'
   providers: [CameraController]
 })
 export class TabsPage {
+  // @ViewChild('navTabs') tabRef: Tabs
 
   public base64Image: string;
   public tab1Root: any;
@@ -21,7 +22,6 @@ export class TabsPage {
   constructor(private CamCont: CameraController) {
     // this tells the tabs component which Pages
     // should be each tab's root Page
-    console.log('initial tabs')
     this.tab1Root = Settings;
     this.tab2Root = Main;
     this.tab3Root = CameraController;

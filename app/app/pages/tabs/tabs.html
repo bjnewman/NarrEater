@@ -1,4 +1,4 @@
-<ion-tabs>
+<ion-tabs #navTabs selectedIndex="1">
   <ion-tab [root]="tab1Root" tabTitle="Settings" tabIcon="settings"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Home" tabIcon="home"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Camera" tabIcon="camera" (ionSelect)="CamCont.takePicture()"></ion-tab>
