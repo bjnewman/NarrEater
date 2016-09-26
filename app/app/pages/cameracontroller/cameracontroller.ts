@@ -41,7 +41,14 @@ export class CameraController {
       error => console.log(error)
     )
     // this.navCtrl.push(MenuView, {picture: this.base64Image, text: this.returnText._body});
-    var newMenu = new Menu("test title", this.returnText._body)
-    this.navCtrl.push(MenuView, {menu: newMenu})
+    var me = this
+    if(this.returnText) {
+      var newMenu = new Menu("test title", this.returnText._body)
+      this.navCtrl.push(MenuView, {menu: newMenu})
+    } else {
+      console.log('fail')
+      me.navCtrl.parent.select(1)
+      this.navCtrl.parent.select(1);
+    }
   }
 }
