@@ -6,6 +6,6 @@ import { NavController } from 'ionic-angular';
 })
 export class Settings {
   constructor(public navCtrl: NavController) {
-
+    // this.navCtrl.parent.select(1);
   }
 }
