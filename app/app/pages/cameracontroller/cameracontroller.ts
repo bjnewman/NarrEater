@@ -37,7 +37,7 @@ export class CameraController {
     let body = JSON.stringify({ rawImage });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    var response = this.http.post('http://10.86.4.132:3000/users', body, options).subscribe(
+    var response = this.http.post('http://192.168.2.166:3000/users', body, options).subscribe(
       data => this.returnText = data,
       error => console.log(error)
     )

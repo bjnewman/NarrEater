@@ -15,4 +15,7 @@ export class MenuView {
     this.content = this.navParams.get('menu').content;
   }
 
+  textToSpeech(){
+    console.log("This is good still")
+  }
 }

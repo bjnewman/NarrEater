@@ -4,13 +4,13 @@
       {{title}}
     </ion-title>
 
-    <button fab-right>
-      <ion-icon name="play"></ion-icon>
-    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <button fab-right (click)="textToSpeech()">
+    <ion-icon name="play"></ion-icon>
+  </button>
   <ion-card>
     <ion-card-content>
       {{content}}
