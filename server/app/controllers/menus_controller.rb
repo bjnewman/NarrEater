@@ -13,7 +13,7 @@ class MenusController < ApplicationController
     image.original_filename = "stuff.png"
     menu.image = image
     # rest_name = params[:menu][:restaurant_name]
-    img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
+    # img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
     # img = extract base64 data from params
     # menu = Menu.create( restaurant_name: "Pete's Pizza", image: image )
     if menu.save
@@ -24,7 +24,7 @@ class MenusController < ApplicationController
                 requests: [
                   {
                       image: {
-                        content: img
+                        content: image
                       },
                       features: {
                         type: "TEXT_DETECTION",
