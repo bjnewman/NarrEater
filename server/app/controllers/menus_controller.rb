@@ -12,12 +12,12 @@ class MenusController < ApplicationController
     image.original_filename = "stuff.png"
     menu.image = image
     # rest_name = params[:menu][:restaurant_name]
+    if menu.save
     p menu.image.url
     puts "image===================================================================================================="
-    img = encoded_image("http://restaurantmenudesignstyle.com/wp-content/uploads/2016/01/example-of-restaurant-menu.14839289414_cde762334a_b.jpg") # placeholder image for testing
+    img = encoded_image("http:#{menu.image.url}") # placeholder image for testing
     # img = extract base64 data from params
     # menu = Menu.create( restaurant_name: "Pete's Pizza", image: image )
-    if menu.save
       uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{ENV["google_vision_key"]}")
       req = Net::HTTP::Post.new(uri, initheader = { 'Content-Type' =>'application/json' })
 
