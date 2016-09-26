@@ -37,7 +37,7 @@ export class CameraController {
     let body = JSON.stringify({ rawImage });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    var response = this.http.post('http://192.168.2.166:3000/users', body, options).subscribe(
+    var response = this.http.post('http://192.168.2.166:3000/menus', body, options).subscribe(
       data => this.returnText = data,
       error => console.log(error)
     )
@@ -48,8 +48,8 @@ export class CameraController {
       this.navCtrl.push(MenuView, {menu: newMenu})
     } else {
       console.log('fail')
-      me.navCtrl.parent.select(1)
-      this.navCtrl.parent.select(1);
+      // me.navCtrl.parent.select(1)
+      this.navCtrl.pop()
     }
   }
 }
