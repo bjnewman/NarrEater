@@ -40,8 +40,8 @@ export class CameraController {
       data => this.returnText = data,
       error => console.log(error)
     )
-    this.navCtrl.push(MenuView, {picture: this.base64Image, text: this.returnText._body});
-    // var newMenu = new Menu("test title", this.returnText._body)
-    // this.navCtrl.push(MenuView, {menu: newMenu})
+    // this.navCtrl.push(MenuView, {picture: this.base64Image, text: this.returnText._body});
+    var newMenu = new Menu("test title", this.returnText._body)
+    this.navCtrl.push(MenuView, {menu: newMenu})
   }
 }
