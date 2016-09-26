@@ -24,7 +24,7 @@ module NarrEatR
     s3_region: ENV["aws_s3_region"],
     s3_credentials: {
       bucket: ENV["aws_s3_bucket"],
-      access_key_id: ENV["aws_access_key_id"],
+      access_key_id: ENV["aws_access_key_ID"],
       secret_access_key: ENV["aws_secret_access_key"]
       }
     }
