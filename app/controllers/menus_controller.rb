@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  skip_before_filter  :verify_authenticity_token, only: :create
   def index
     @menus = Menu.order(created_at: :desc)
   end
