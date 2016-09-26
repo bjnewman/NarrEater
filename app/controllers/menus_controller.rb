@@ -11,7 +11,7 @@ class MenusController < ApplicationController
     #img = extract base64 data from params
     menu = Menu.create( restaurant_name: rest_name, image: image )
     if menu.save
-      uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{Figaro.env.google_vision_key}")
+      uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{ENV[google_vision_key]}")
       req = Net::HTTP::Post.new(uri, initheader = { 'Content-Type' =>'application/json' })
 
       req.body = {
