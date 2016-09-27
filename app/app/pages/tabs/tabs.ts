@@ -6,10 +6,11 @@ import { Main } from '../main/main';
 import { MenuView } from '../menuview/menuview';
 import { Settings } from '../settings/settings';
 import { CameraController } from '../cameracontroller/cameracontroller'
+import { ApiService } from '../../apiService';
 
 @Component({
   templateUrl: 'build/pages/tabs/tabs.html',
-  providers: [CameraController]
+  providers: [CameraController, ApiService]
 })
 export class TabsPage {
   // @ViewChild('navTabs') tabRef: Tabs
