@@ -37,8 +37,12 @@ export class CameraController {
     let body = JSON.stringify({ rawImage });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    var response = this.http.post('http://10.86.4.132:3000/users', body, options).subscribe(
-      data => this.returnText = data,
+    var response = this.http.post('http://10.86.4.132:3000/menus', body, options).subscribe(
+      data => {
+        this.returnText = data
+        var newMenu = new Menu("test title", this.returnText._body)
+        this.navCtrl.push(MenuView, {menu: newMenu})
+      },
       error => console.log(error)
     )
     // this.navCtrl.push(MenuView, {picture: this.base64Image, text: this.returnText._body});
