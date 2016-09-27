@@ -10,7 +10,7 @@ export class ApiService {
     let body = JSON.stringify({ rawImage });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    var response = this.http.post('http://10.86.4.132:3000/menus', body, options)
+    var response = this.http.post('http://192.168.2.85:3000/menus', body, options)
     return response
   }
 }
