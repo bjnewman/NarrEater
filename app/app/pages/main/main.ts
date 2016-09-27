@@ -2,13 +2,18 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { MenuView } from '../menuview/menuview';
 import { Menu } from '../../models/menu';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
-  templateUrl: 'build/pages/main/main.html'
+  templateUrl: 'build/pages/main/main.html',
+
 })
+
 export class Main {
   menus: any;
+
   constructor(public navCtrl: NavController) {
+
     this.menus = [
       new Menu('menu1', 'content1'),
       new Menu('menu2', 'content2'),

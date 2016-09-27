@@ -13,6 +13,7 @@ export class CameraController {
   public base64Image: string;
   public returnText;
 
+
   constructor(public navCtrl: NavController, private api: ApiService) {
     console.log('Initial CameraController')
   }
@@ -36,6 +37,7 @@ export class CameraController {
       result => {
         this.returnText = result
         var newMenu = new Menu("test title", this.returnText._body)
+
         this.navCtrl.push(MenuView, {menu: newMenu})
       },
       error => console.log(error)
