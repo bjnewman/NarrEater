@@ -56,6 +56,7 @@ GEM
       jmespath (~> 1.0)
     aws-sdk-resources (2.5.10)
       aws-sdk-core (= 2.5.10)
+    bcrypt (3.1.11)
     builder (3.2.2)
     byebug (9.0.5)
     climate_control (0.0.3)
@@ -182,6 +183,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.2)
   figaro
@@ -202,4 +204,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
