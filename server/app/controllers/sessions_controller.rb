@@ -3,16 +3,15 @@ class SessionsController < ApplicationController
   	@user = User.authenticate([user_params])
   		if @user
   		sessions[:user_id] = @user.id
-  		###redirect to ionic route or token return
-  		##ionic will ajax request for info.
+      render json: {response: {user_name: @user.user_name, email: @user.email}}, content_type: 'application/json'
   	else
-  		render file: "#{Rails.root}/public/500", layout: false, status: 500
+  		render file: "#{Rails.root}/public/422", layout: false, status: 422
   	end
   end
 
   def destroy
   	sessions[:user_id] = nil
-  	#redirect
+  	render json: {response: "Successfully Logged out"}, content_type: 'application/json'
   end
 
   private
