@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   def self.authentication(args)
   	user = User.find_by(email: args[:email])
-  	return user if user && user.password == args[:password]
+  	return user if user && user.password = args[:password]
   end
 
   def valid_email
