@@ -3,7 +3,7 @@ class Menu < ActiveRecord::Base
   validates_attachment :image, presence: true,
   content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
   size: { in: 0..10.megabytes}
-  validate :image_dimensions, on: :create
+  # validate :image_dimensions, on: :create
 
 
   private
