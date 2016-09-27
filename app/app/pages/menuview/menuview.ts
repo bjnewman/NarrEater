@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {NavParams} from 'ionic-angular';
 import { Menu } from '../../models/menu';
+import { TextToSpeech } from 'ionic-native';
 import { TabsPage } from '../tabs/tabs';
 import { Main } from '../main/main';
 
@@ -21,5 +22,12 @@ export class MenuView {
     this.content = this.navParams.get('menu').content;
   }
 
+  textToSpeech(){
+    TextToSpeech.speak({
+      text: this.content,
+      locale: 'en-GB',
+      rate: 1
+    })
+  }
 
 }
