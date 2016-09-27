@@ -7,11 +7,11 @@ class MenusController < ApplicationController
 
   def create
     #get image from params in format of "{ "menu": { "restaurant_name": "FoodTown", "raw_image": "data:image/png;base64,iVBORw0KGgo...", "image_file_name": "file.png" } }
-
+    menu = Menu.create( restaurant_name: "Pete's Pizza")
     image = Paperclip.io_adapters.for(params[:rawImage])
     image.original_filename = "stuff.png"
     menu.image = image
-    rest_name = "Pete's Pizza"
+
 
     ###TEST CODES TO AVOID PAPERCLIP && PARAMS
     # picUrl = 'http://restaurantmenudesignstyle.com/wp-content/uploads/2016/01/example-list-of-menu-in-restaurant.new-italian-restaurant-menu-2a.jpg'
@@ -21,7 +21,7 @@ class MenusController < ApplicationController
 
     # img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
     #img = extract base64 data from params
-    menu = Menu.create( restaurant_name: rest_name, image: image )
+    # menu = Menu.create( restaurant_name: rest_name, image: image )
     picUrl = menu.image.url
 
     if menu.save
