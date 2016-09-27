@@ -9,7 +9,8 @@ class MenusController < ApplicationController
     #get image from params in format of "{ "menu": { "restaurant_name": "FoodTown", "raw_image": "data:image/png;base64,iVBORw0KGgo...", "image_file_name": "file.png" } }
 
     image = Paperclip.io_adapters.for(params[:rawImage])
-    image.file_name = "stuff.png"
+    image.original_filename = "stuff.png"
+    menu.image = image
     rest_name = "Pete's Pizza"
 
     ###TEST CODES TO AVOID PAPERCLIP && PARAMS
