@@ -1,17 +1,18 @@
 class MenusController < ApplicationController
   skip_before_filter  :verify_authenticity_token, only: :create
-  
+
   def index
     @menus = Menu.order(created_at: :desc)
   end
 
   def create
     #get image from params in format of "{ "menu": { "restaurant_name": "FoodTown", "raw_image": "data:image/png;base64,iVBORw0KGgo...", "image_file_name": "file.png" } }
-    
-    image = Paperclip.io_adapters.for(params[:menu][:raw_image])
-    rest_name = params[:menu][:restaurant_name]
-  
-    ###TEST CODES TO AVOID PAPERCLIP && PARAMS 
+
+    image = Paperclip.io_adapters.for(params[:rawImage])
+    image.file_name = "stuff.png"
+    rest_name = "Pete's Pizza"
+
+    ###TEST CODES TO AVOID PAPERCLIP && PARAMS
     # picUrl = 'http://restaurantmenudesignstyle.com/wp-content/uploads/2016/01/example-list-of-menu-in-restaurant.new-italian-restaurant-menu-2a.jpg'
     # image = Paperclip.io_adapters.for(picUrl)
     # rest_name = "PIZZERIA"
@@ -21,12 +22,11 @@ class MenusController < ApplicationController
     #img = extract base64 data from params
     menu = Menu.create( restaurant_name: rest_name, image: image )
     picUrl = menu.image.url
- 
+
     if menu.save
-      detected_text = ocr_api_call(picUrl)  
-      menu.ocr_text = detected_text
+      menu.ocr_text = ocr_api_call(picUrl)
       menu.save
-      
+
 
       respond_to do |format|
         format.js do
