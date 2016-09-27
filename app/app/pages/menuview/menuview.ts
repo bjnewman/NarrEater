@@ -6,9 +6,11 @@ import { TextToSpeech } from 'ionic-native';
 import { TabsPage } from '../tabs/tabs';
 import { Main } from '../main/main';
 
+
 @Component({
   templateUrl: 'build/pages/menuview/menuview.html'
 })
+
 export class MenuView {
   private title;
   private content;
@@ -28,7 +30,4 @@ export class MenuView {
     })
   }
 
-  goBack(){
-    this.navCtrl.pop(Main)
-  }
 }

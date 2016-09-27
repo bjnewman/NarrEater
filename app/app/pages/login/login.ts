@@ -19,4 +19,8 @@ export class Login {
     this.navCtrl.push(TabsPage, {});
   }
 
+  guestLogin() {
+    this.rootPage = TabsPage;
+    this.navCtrl.push(TabsPage, {});
+  }
 }
