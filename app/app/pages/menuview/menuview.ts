@@ -5,9 +5,11 @@ import { Menu } from '../../models/menu';
 import { TabsPage } from '../tabs/tabs';
 import { Main } from '../main/main';
 
+
 @Component({
   templateUrl: 'build/pages/menuview/menuview.html'
 })
+
 export class MenuView {
   private title;
   private content;
@@ -19,7 +21,5 @@ export class MenuView {
     this.content = this.navParams.get('menu').content;
   }
 
-  goBack(){
-    this.navCtrl.pop(Main)
-  }
+
 }

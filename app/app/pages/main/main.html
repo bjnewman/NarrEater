@@ -1,10 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <h1>NarrEator</h1>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content>
-<p>
-  Main
-</p>
-  <ion-list>
-    <ion-item *ngFor="let menu of menus" (click)="menuSelected(menu)">
-      {{menu.title}}
-    </ion-item>
-  </ion-list>
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let menu of menus" (click)="menuSelected(menu)">
+        {{menu.title}}
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="!currentUser()">
+    <div>
+     <button large class="camera-button"(click)="CamCont.takePicture()">
+        <ion-icon name="camera"></ion-icon>
+        Take a picture!
+      </button>
+    </div>
+  </div>
+
 </ion-content>
