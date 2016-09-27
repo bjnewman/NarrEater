@@ -26,6 +26,7 @@ class MenusController < ApplicationController
       menu.ocr_text = detected_text
       menu.save
       
+
       respond_to do |format|
         format.js do
           render json: menu.ocr_text, content_type: 'application/json'
@@ -37,7 +38,7 @@ class MenusController < ApplicationController
     else
       respond_to do |format|
         format.js do
-          render json: menu.error.full_messages, content_type: "application/json"
+          render json: menu.errors.full_messages, content_type: "application/json"
         end
         format.html do
             render file: "#{Rails.root}/public/500", layout: false, status: 500
