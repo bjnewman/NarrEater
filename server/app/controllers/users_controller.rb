@@ -3,22 +3,21 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   		sessions[:user_id] = @user.id
-  		###redirect to ionic route or token return
-  		##ionic will ajax request for info.
+  		render json: {response: {user_name: @user.user_name, email: @user.email}}, content_type: 'application/json'
   	else
-  		render file: "#{Rails.root}/public/500", layout: false, status: 500
+  		render file: "#{Rails.root}/public/422", layout: false, status: 422
   	end
   end
 
   def destroy
   	@user = User.find(params[:id])
   	@user.destroy
-  	###redirect to ionic
+  	render json: {response: "Account successfully removed"}, content_type: 'application/json'
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:user_name, :email, :password)
   end
 end
