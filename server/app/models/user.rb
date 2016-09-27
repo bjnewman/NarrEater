@@ -4,7 +4,7 @@ class User < ApplicationRecord
 	validates_uniqueness_of :email
   validate :valid_email
 
-  def self.authentication(args)
+  def self.authenticate(args)
   	user = User.find_by(email: args[:email])
   	return user if user && user.password = args[:password]
   end
