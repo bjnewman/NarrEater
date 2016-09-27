@@ -21,7 +21,6 @@ export class MenuView {
   }
 
   textToSpeech(){
-    console.log("This is good still")
     TextToSpeech.speak({
       text: this.content,
       locale: 'en-GB',

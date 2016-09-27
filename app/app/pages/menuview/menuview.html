@@ -7,16 +7,13 @@
 </ion-header>
 
 <ion-content padding>
-  <button fab-right (click)="textToSpeech()">
-    <ion-icon name="play"></ion-icon>
-  </button>
   <ion-card>
     <ion-card-content>
       {{content}}
     </ion-card-content>
   </ion-card>
 
-  <button block class="button-bottom">
+  <button block class="button-bottom" (click)="textToSpeech()">
     <ion-icon name="play"></ion-icon>
   </button>
 
