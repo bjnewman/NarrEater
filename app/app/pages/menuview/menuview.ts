@@ -9,8 +9,10 @@ import { Menu } from '../../models/menu';
 export class MenuView {
   private title;
   private content;
+  public rootPage: any;
 
   constructor(public navCtrl: NavController, private navParams: NavParams) {
+    this.rootPage = TabsPage;
     this.title = this.navParams.get('menu').title;
     this.content = this.navParams.get('menu').content;
   }
