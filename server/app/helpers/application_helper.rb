@@ -1,6 +1,6 @@
 module ApplicationHelper
 	def ocr_api_call(picUrl)
-		img = encoded_image(picUrl)
+		img = encoded_image("http:#{picUrl}")
     uri = URI("https://vision.googleapis.com/v1/images:annotate?key=#{ENV[google_vision_key]}")
     req = Net::HTTP::Post.new(uri, initheader = { 'Content-Type' =>'application/json' })
 

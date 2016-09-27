@@ -20,6 +20,7 @@ class MenusController < ApplicationController
     # img = encoded_image('http://inboxtranslation.com/wp-content/uploads/2014/10/3-restaurant-translated-menu-arabic.jpg') # placeholder image for testing
     #img = extract base64 data from params
     menu = Menu.create( restaurant_name: rest_name, image: image )
+    picUrl = menu.image.url
  
     if menu.save
       detected_text = ocr_api_call(picUrl)  
