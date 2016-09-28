@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
   	@user = User.authenticate([user_params])
   		if @user
-  		sessions[:user_id] = @user.id
+  		session[:user_id] = @user.id
       render json: {response: {user_name: @user.user_name, email: @user.email}}, content_type: 'application/json'
   	else
   		render file: "#{Rails.root}/public/422", layout: false, status: 422
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	sessions[:user_id] = nil
+  	session[:user_id] = nil
   	render json: {response: "Successfully Logged out"}, content_type: 'application/json'
   end
 
