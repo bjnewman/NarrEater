@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-  		session[:user_id] = @user.id
+   		session[:user_id] = @user.id
   		render json: {response: {user_name: @user.user_name, email: @user.email}}, content_type: 'application/json'
   	else
   		render file: "#{Rails.root}/public/422", layout: false, status: 422
