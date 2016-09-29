@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get '/homepages', to: 'homepages#index'
   resources :menus, only: [:index, :create]
-  resources :users, only: [ :create, :destroy]
-  get '/sessions', to: 'sessions#create'
-  get '/sessions', to: 'sessions#destroy'
+  resources :users, only: [:create, :destroy, :show]
+  resources :sessions, only: [:create, :destroy]
 end
