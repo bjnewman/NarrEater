@@ -10,18 +10,20 @@
 </ion-header>
 
 <ion-content padding class="background">
+    <button block  class="button-bottom button-accent"(click)="textToSpeech($event)">
+        Play
+    </button>
+
+    <button block class="stop-button button-accent" (click)="stopTalking()">
+        Stop
+    </button>
+
   <ion-card class="accent">
     <ion-card-content>
       {{content}}
     </ion-card-content>
   </ion-card>
 
-     <button block  class="button-bottom button-accent"(click)="textToSpeech($event)">
-        Play
-     </button>
 
-    <button block class="stop-button button-accent" (click)="stopTalking()">
-        Stop
-    </button>
 
 </ion-content>
