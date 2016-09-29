@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :menus, foreign_key: :creator_id
+
 	has_secure_password
 	validates_presence_of :user_name, :email, :password_digest
 	validates_uniqueness_of :email
