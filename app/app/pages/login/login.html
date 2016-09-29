@@ -20,13 +20,13 @@
                 <ion-list>
 
                     <ion-item>
-                        <ion-label>Username</ion-label>
-                        <ion-input type="text"></ion-input>
+                        <ion-label>Email</ion-label>
+                        <ion-input type="text" [value]="email" [(ngModel)]="email"></ion-input>
                     </ion-item>
 
                     <ion-item>
                         <ion-label>Password</ion-label>
-                        <ion-input type="password"></ion-input>
+                        <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>
                     </ion-item>
 
                 </ion-list>
@@ -34,7 +34,7 @@
         </ion-row>
         <ion-row>
             <ion-col>
-                <button block (click)="login()">Login</button>
+                <button block (click)="login(email, password)">Login</button>
             </ion-col>
         </ion-row>
         <ion-row>
