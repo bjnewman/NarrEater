@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validate :valid_email
 
   def self.authenticate(args)
-  	user = User.find_by(email: args[:email])
+  	user = User.find_by(email: args[:email].downcase)
   	return user if user && user.password = args[:password]
   end
 

@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  skip_before_filter  :verify_authenticity_token, only: :create
+  # skip_before_filter  :verify_authenticity_token, only: :create
 
   def index
     @menus = Menu.order(created_at: :desc)
@@ -34,8 +34,8 @@ class MenusController < ApplicationController
     menu.image = image
     # rest_name = params[:menu][:restaurant_name]
     if menu.save
-    p menu.image.url
-    puts "image===================================================================================================="
+    # p menu.image.url
+    # puts "image===================================================================================================="
     img = encoded_image("http:#{menu.image.url}") # placeholder image for testing
     # img = extract base64 data from params
     # menu = Menu.create( restaurant_name: "Pete's Pizza", image: image )
@@ -60,9 +60,9 @@ class MenusController < ApplicationController
       detected_text = ""
       res.start do |http|
           resp = http.request(req)
-          puts resp
+          # puts resp
           json = JSON.parse(resp.body)
-          puts json
+          # puts json
           if json && json["responses"] && json["responses"][0]["textAnnotations"] && json["responses"][0]["textAnnotations"][0]["description"]
           detected_text = json["responses"][0]["textAnnotations"][0]["description"]
           end
