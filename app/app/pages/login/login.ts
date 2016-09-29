@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Component({
   templateUrl: 'build/pages/login/login.html',
+  providers: [ApiService]
 })
 export class Login {
   public rootPage: any;
