@@ -28,8 +28,9 @@ module ApplicationHelper
         detected_text = json["responses"][0]["textAnnotations"][0]["description"]
       end
     end
-    return detected_text
+    detected_text
   end
+
 
   private
 

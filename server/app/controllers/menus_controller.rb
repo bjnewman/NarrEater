@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  skip_before_filter  :verify_authenticity_token, only: :create
+  # skip_before_filter  :verify_authenticity_token, only: :create
 
   def index
     @menus = Menu.order(created_at: :desc)
@@ -28,14 +28,14 @@ class MenusController < ApplicationController
     #   menu.ocr_text = ocr_api_call(picUrl)
     #   menu.save
 
-    menu = Menu.create( restaurant_name: "Pete's Pizza")
+    menu = Menu.create( restaurant_name: Menu.generate_random_restaurant)
     image = Paperclip.io_adapters.for(params[:rawImage])
-    image.original_filename = "stuff.png"
+    image.original_filename = Menu.generate_image_filename
     menu.image = image
     # rest_name = params[:menu][:restaurant_name]
     if menu.save
-    p menu.image.url
-    puts "image===================================================================================================="
+    # p menu.image.url
+    # puts "image===================================================================================================="
     img = encoded_image("http:#{menu.image.url}") # placeholder image for testing
     # img = extract base64 data from params
     # menu = Menu.create( restaurant_name: "Pete's Pizza", image: image )
@@ -60,13 +60,14 @@ class MenusController < ApplicationController
       detected_text = ""
       res.start do |http|
           resp = http.request(req)
-          puts resp
+          # puts resp
           json = JSON.parse(resp.body)
-          puts json
+          # puts json
           if json && json["responses"] && json["responses"][0]["textAnnotations"] && json["responses"][0]["textAnnotations"][0]["description"]
           detected_text = json["responses"][0]["textAnnotations"][0]["description"]
           end
-          menu.ocr_text = detected_text
+          scalpel_text = Scalpel.cut(detected_text)
+          menu.ocr_text = scalpel_text
           menu.save
       end
 
