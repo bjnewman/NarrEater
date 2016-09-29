@@ -66,7 +66,8 @@ class MenusController < ApplicationController
           if json && json["responses"] && json["responses"][0]["textAnnotations"] && json["responses"][0]["textAnnotations"][0]["description"]
           detected_text = json["responses"][0]["textAnnotations"][0]["description"]
           end
-          menu.ocr_text = detected_text
+          scalpel_text_array = Scalpel.cut(detected_text)
+          menu.ocr_text = scalpel_text_array.join('')
           menu.save
       end
 

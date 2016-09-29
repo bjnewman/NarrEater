@@ -29,6 +29,11 @@ RSpec.describe UsersController do
 		  post :create, params: {user: { user_name: "jim", email: "jimdbc.com", password: 'secret'}}
 	  	expect(subject).to have_http_status 422
 	  end
+
+	  it "failed user create renders 200" do
+		  post :create, params: {user: { user_name: "jim", email: "jim@dbc.com", password: 'secret'}}
+	  	expect(subject).to have_http_status 200
+	  end
 	end
 
 	describe "DELETE #destroy" do

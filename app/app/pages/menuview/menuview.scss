@@ -1,10 +1,35 @@
 .button-bottom {
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  margin-bottom: 10px;
+  top: 0;
   right: 0;
 
 }
 
+.stop-button {
+  position: relative;
+  top: 20px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
 .blue-theme {
   background-color: #0f0f70;
+}
+
+.background {
+  background-color: #c0c0c0;
+}
+
+.header {
+  background-color: #808080;
+}
+
+.accent {
+  background-color: #b0c4de;
+}
+
+.button-accent {
+ background-color: #6495ed;
 }

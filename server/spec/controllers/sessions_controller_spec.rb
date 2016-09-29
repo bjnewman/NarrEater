@@ -17,11 +17,17 @@ RSpec.describe SessionsController do
   		expect(response).to have_http_status 422
   	end
 
-  	it "responds with a json object" do 
-  		post :create, params: {:user => {email:  "davidbabu@gmail", password:  "password"}}
+    it "responds with a json object" do 
+      post :create, params: {:user => {email:  "davidbabu@gmail", password:  "password"}}
+      expect(response.body).to include_json(
+        { response: { login: true} }
+      )
+    end
+
+  	it "responds with a json object if user authentication fails" do 
+  		post :create, params: {:user => {email:  "davibabu@gmail", password:  "password"}}
   		expect(response.body).to include_json(
-  			{ response: { user_name: "dbabu",
-  				            email: "davidbabu@gmail" } }
+  			{ response: { login: false} }
   		)
   	end
   end
