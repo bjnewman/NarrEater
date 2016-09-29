@@ -15,19 +15,31 @@ export class MenuView {
   private title;
   private content;
   public rootPage: any;
+  public reading: any;
 
   constructor(public navCtrl: NavController, private navParams: NavParams) {
     this.rootPage = TabsPage;
     this.title = this.navParams.get('menu').title;
     this.content = this.navParams.get('menu').content;
+    this.reading = false
   }
 
   textToSpeech(){
+
     TextToSpeech.speak({
       text: this.content,
       locale: 'en-GB',
       rate: 1
     })
   }
+
+  stopTalking(){
+      TextToSpeech.speak({
+      text: " ",
+      locale: 'en-GB',
+      rate: 1
+    })
+  }
+
 
 }

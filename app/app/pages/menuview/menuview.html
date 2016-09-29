@@ -1,20 +1,27 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-nav-back-button class="text-color">
+       Back
+    </ion-nav-back-button>
+    <ion-title class="accent">
       {{title}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card>
+<ion-content padding class="background">
+  <ion-card class="accent">
     <ion-card-content>
       {{content}}
     </ion-card-content>
   </ion-card>
 
-  <button block class="button-bottom" (click)="textToSpeech()">
-    <ion-icon name="play"></ion-icon>
-  </button>
+     <button block  class="button-bottom button-accent"(click)="textToSpeech($event)">
+        Play
+     </button>
+
+    <button block class="stop-button button-accent" (click)="stopTalking()">
+        Stop
+    </button>
 
 </ion-content>
