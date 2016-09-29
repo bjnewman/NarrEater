@@ -31,6 +31,17 @@ module ApplicationHelper
     return detected_text
   end
 
+  def generate_random_restaurant()
+    resturant_name = ["Hogwash Express", "Dumblehore's Dungeon", "Michelle's Crap Shack", "StArmbrust technical cuisine", "Alex's TacoTruck Express", "Ben's Legally Sue Foo Young", "Erica's Tupperton Heat Eatery", "Sohel's Matt Bakery", "2Fangs Stephen's Sweet Shop"]
+    resturant_name.sample
+  end
+
+  def generate_image_filename()
+    Faker::Team.creature
+  end
+
+
+
   private
 
   def encoded_image(image_url)
