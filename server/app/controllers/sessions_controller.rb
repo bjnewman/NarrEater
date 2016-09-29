@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
   def create
-  	@user = User.authenticate([user_params])
-  		if @user
-  		session[:user_id] = @user.id
-      render json: {response: {user_name: @user.user_name, email: @user.email}}, content_type: 'application/json'
-  	else
-  		render file: "#{Rails.root}/public/422", layout: false, status: 422
-  	end
+    @user = User.authenticate(user_params)
+      if @user
+      session[:user_id] = @user.id
+      p session
+      render json: {response: {login: true}}, content_type: 'application/json'
+    else
+      render json: {response: {login: false}}, layout: false, status: 422
+    end
   end
 
   def destroy

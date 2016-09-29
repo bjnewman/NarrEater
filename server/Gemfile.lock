@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 7edb35a2a9a80c9598dfde235c7e593c023fc914
+  revision: b01f47407a03feabd41ac8786b577310e3be87b6
   specs:
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
@@ -50,12 +50,12 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.2)
-    aws-sdk (2.5.10)
-      aws-sdk-resources (= 2.5.10)
-    aws-sdk-core (2.5.10)
+    aws-sdk (2.6.4)
+      aws-sdk-resources (= 2.6.4)
+    aws-sdk-core (2.6.4)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.5.10)
-      aws-sdk-core (= 2.5.10)
+    aws-sdk-resources (2.6.4)
+      aws-sdk-core (= 2.6.4)
     bcrypt (3.1.11)
     builder (3.2.2)
     byebug (9.0.5)
@@ -106,7 +106,7 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.6.8)

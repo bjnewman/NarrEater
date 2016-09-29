@@ -1,4 +1,5 @@
 class Menu < ActiveRecord::Base
+  belongs_to :creator, class_name: :user
   has_attached_file :image, styles: { large: "600x600>", medium: "300x300>", small: "100x100>" }
   belongs_to :creator, class_name: :user
   validates_attachment :image, presence: true,
