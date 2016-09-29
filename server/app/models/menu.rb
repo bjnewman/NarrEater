@@ -6,6 +6,17 @@ class Menu < ActiveRecord::Base
   size: { in: 0..10.megabytes}
   # validate :image_dimensions, on: :create
 
+  def self.generate_random_restaurant
+    restaurant_name = ["Hogwash Express", "Dumbledore's Dungeon", "Michelle's Crab Shack", "StArmbrust technical cuisine", "Alex's TacoTruck Express", "Ben's Legally Sue Foo Young", "Erica's Tupperton Heat Eatery", "Sohel's Matt Bakery"]
+     restaurant_name.sample
+  end
+
+  def self.generate_image_filename
+    filename = Faker::Team.creature
+    "#{filename}.png"
+  end
+
+
 
   private
 
