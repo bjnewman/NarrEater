@@ -35,7 +35,7 @@ gem 'aws-sdk'
 gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 gem 'rack-cors', :require => 'rack/cors'
 # gem 'active_model_serializers', '~> 0.10.0'
-gem 'faker'
+gem 'scalpel'
 
 
 group :development, :test do
