@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
     @user = User.authenticate(user_params)
       if @user
       session[:user_id] = @user.id
-      p session
       render json: {response: {login: true}}, content_type: 'application/json'
     else
       render json: {response: {login: false}}, layout: false, status: 422
