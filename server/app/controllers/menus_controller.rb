@@ -28,9 +28,9 @@ class MenusController < ApplicationController
     #   menu.ocr_text = ocr_api_call(picUrl)
     #   menu.save
 
-    menu = Menu.create( restaurant_name: "Pete's Pizza")
+    menu = Menu.create( restaurant_name: Menu.generate_random_restaurant)
     image = Paperclip.io_adapters.for(params[:rawImage])
-    image.original_filename = "stuff.png"
+    image.original_filename = Menu.generate_image_filename
     menu.image = image
     # rest_name = params[:menu][:restaurant_name]
     if menu.save
