@@ -32,8 +32,8 @@ module ApplicationHelper
   end
 
   def generate_random_restaurant()
-    resturant_name = ["Hogwash Express", "Dumblehore's Dungeon", "Michelle's Crap Shack", "StArmbrust technical cuisine", "Alex's TacoTruck Express", "Ben's Legally Sue Foo Young", "Erica's Tupperton Heat Eatery", "Sohel's Matt Bakery", "2Fangs Stephen's Sweet Shop"]
-     return resturant_name.sample
+    restaurant_name = ["Hogwash Express", "Dumblehore's Dungeon", "Michelle's Crap Shack", "StArmbrust technical cuisine", "Alex's TacoTruck Express", "Ben's Legally Sue Foo Young", "Erica's Tupperton Heat Eatery", "Sohel's Matt Bakery", "2Fangs Stephen's Sweet Shop"]
+     return restaurant_name.sample
   end
 
   def generate_image_filename()
