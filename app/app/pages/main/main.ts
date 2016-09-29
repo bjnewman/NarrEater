@@ -17,7 +17,7 @@ export class Main {
   constructor(public navCtrl: NavController, private CamCont: CameraController) {
 
     this.menus = [
-
+      new Menu("menu", "Hello David")
     ];
   }
 

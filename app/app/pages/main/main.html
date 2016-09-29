@@ -1,21 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title >
       <h1>NarrEator</h1>
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="background">
   <div>
     <ion-list>
-      <ion-item *ngFor="let menu of menus" (click)="menuSelected(menu)">
+      <ion-item class="accent" *ngFor="let menu of menus" (click)="menuSelected(menu)">
         {{menu.title}}
       </ion-item>
     </ion-list>
   </div>
 
   <div *ngIf="!currentUser()">
-    <ion-card>
+    <ion-card class="accent">
       <ion-card-header>
        Welcome to NarrEator
       </ion-card-header>
@@ -24,7 +24,7 @@
       </ion-card-content>
     </ion-card>
     <div>
-     <button large class="camera-button"(click)="CamCont.takePicture()">
+     <button large class="camera-button button-accent"(click)="CamCont.takePicture()">
         <ion-icon name="camera"></ion-icon>
         Take a picture!
       </button>
