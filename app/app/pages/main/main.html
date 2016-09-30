@@ -7,28 +7,20 @@
 </ion-header>
 <ion-content class="background">
   <div>
-    <ion-list>
+    <ion-list class="background">
       <ion-item class="accent" *ngFor="let menu of menus" (click)="menuSelected(menu)">
         {{menu.title}}
       </ion-item>
     </ion-list>
   </div>
 
-  <div *ngIf="!currentUser()">
-    <ion-card class="accent">
-      <ion-card-header>
-       Welcome to NarrEator
-      </ion-card-header>
-      <ion-card-content>
-       Give NarrEator a try by pressing the take picture button below to capture an image of your desired menu. NarrEator will begin reading the menu back to you momentarily.
-      </ion-card-content>
-    </ion-card>
+
     <div>
      <button large class="camera-button button-accent"(click)="CamCont.takePicture()">
         <ion-icon name="camera"></ion-icon>
         Take a picture!
       </button>
     </div>
-  </div>
+
 
 </ion-content>
